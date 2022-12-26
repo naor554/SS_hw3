@@ -1,5 +1,6 @@
 # SS_hw3
 *Arrays And Strings*
+
 In this assignment we learned about arrays and string in C.
 
 **Mission**
