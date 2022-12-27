@@ -61,10 +61,10 @@ int main(){
         printf("%d", *(arr + i));
         if(i != SIZE-1){
             printf(",");
-        }
-        
+        }  
     }
-
+    
+    printf("\n");
     return 0;   
 }
 
