@@ -3,7 +3,6 @@
 #include <string.h>
 #define LINE 256  //Max length of a line in the text
 #define WORD 30   //Max length of a word in the text
-#define MAX 250   //Max number of lines in the text
 
 
 // this function uses to read a line from the text
