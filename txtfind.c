@@ -5,16 +5,14 @@
 #define WORD 30   //Max length of a word in the text
 #define MAX 250   //Max number of lines in the text
 
-//pointer to the file
-FILE *ptr;
 
 // this function uses to read a line from the text
 int get_line(char s[]){
     int chars_received = 0;
     char c;
     for (int i = 0; i < LINE; i++){
-        c = fgetc(ptr);
-        if(feof(ptr)){
+        scanf("%c", &c);
+        if(feof(stdin)){
             break;
         }
         chars_received++;
@@ -31,10 +29,10 @@ int getword(char w[]){
     int chars_received = 0;
     char c;
     for (int i = 0; i < WORD; i++){
-        c = fgetc(ptr);
-        if(feof(ptr)){
+       scanf("%c", &c);
+        if(feof(stdin)){
             break;
-        }else if(c == '\n' || c == ' ' || c == '\t'){
+        }else if(c == '\n' || c == ' ' || c == '\t' || c == '\r'){
             w[i] = '\0';
             break;
         }
@@ -80,8 +78,7 @@ int similiar(char* s, char* t){
 }
 
 int main(){
-    ptr = fopen("input.txt", "r"); // open the txt file in order to read it 
-
+    
     char str[WORD]; // buffer for the string to search 
     char operation[WORD]; // buffer for the operation to do
     char word[WORD]; // buffer for reading a word by word from the text file
@@ -111,8 +108,7 @@ int main(){
             chars_recevid = getword(word);
         }
     }
-    // close the file
-    fclose(ptr);
+    
     return 0;
 }
 
