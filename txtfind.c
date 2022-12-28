@@ -80,31 +80,30 @@ int main(){
     
     char str[WORD]; // buffer for the string to search 
     char operation[WORD]; // buffer for the operation to do
-    char word[WORD]; // buffer for reading a word by word from the text file
-    char line[LINE]; // buffer for reading a line by line from the text file
+    char buffer[LINE]; // buffer for reading a line or a word from the text file
 
     getword(str);
     getword(operation);
-    get_line(line); // skip on the second line which is empty
+    get_line(buffer); // skip on the second line which is empty
 
-    // if the operation is a we'll check for every line in text if str is a substring of it.
+    // if the operation is a, we'll check for every line in text if str is a substring of it.
     if(operation[0] == 'a'){
-        int chars_recevid = get_line(line); 
+        int chars_recevid = get_line(buffer); 
         while(chars_recevid != 0){
-            if(substring(line, str)){
-                printf("%s", line);
+            if(substring(buffer, str)){
+                printf("%s", buffer);
             }
-            chars_recevid = get_line(line);
+            chars_recevid = get_line(buffer);
         }
     }
     // if the operation is b we'll check for every word in text if str is similiar to it.
     if(operation[0] == 'b'){
-        int chars_recevid = getword(word);
+        int chars_recevid = getword(buffer);
         while(chars_recevid != 0){
-            if(similiar(word, str)){
-                printf("%s\n", word);
+            if(similiar(buffer, str)){
+                printf("%s\n", buffer);
             }
-            chars_recevid = getword(word);
+            chars_recevid = getword(buffer);
         }
     }
     
