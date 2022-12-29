@@ -5,6 +5,7 @@
 #define WORD 30   //Max length of a word in the text
 
 
+
 // this function uses to read a line from the text
 int get_line(char s[]){
     int chars_received = 0;
@@ -42,6 +43,7 @@ int getword(char w[]){
 }
 
 // this function uses to check if one string is a substring of another
+//return 1 if true else return 0.
 int substring(char* str1, char* str2){
     char* ans = strstr(str1, str2);
     if(ans != NULL){
@@ -50,11 +52,13 @@ int substring(char* str1, char* str2){
     return 0;
 }
 
+
 // this function uses to check if one string is similiar to another- 
 // if str1 is different by only one letter from str2 
+// return 1 if true else return 0.
 int similiar(char* s, char* t){
-    int slen = (int)strlen(s);
-    int tlen = (int)strlen(t);
+    size_t slen = strlen(s);
+    size_t tlen = strlen(t);
     if((slen - tlen) > 1 || slen < tlen){
         return 0;
     }
@@ -81,6 +85,7 @@ int main(){
     char str[WORD]; // buffer for the string to search 
     char operation[WORD]; // buffer for the operation to do
     char buffer[LINE]; // buffer for reading a line or a word from the text file
+    int chars_recevid;
 
     getword(str);
     getword(operation);
@@ -88,7 +93,7 @@ int main(){
 
     // if the operation is a, we'll check for every line in text if str is a substring of it.
     if(operation[0] == 'a'){
-        int chars_recevid = get_line(buffer); 
+        chars_recevid = get_line(buffer); 
         while(chars_recevid != 0){
             if(substring(buffer, str)){
                 printf("%s", buffer);
@@ -97,8 +102,8 @@ int main(){
         }
     }
     // if the operation is b we'll check for every word in text if str is similiar to it.
-    if(operation[0] == 'b'){
-        int chars_recevid = getword(buffer);
+    else if(operation[0] == 'b'){
+        chars_recevid = getword(buffer);
         while(chars_recevid != 0){
             if(similiar(buffer, str)){
                 printf("%s\n", buffer);
