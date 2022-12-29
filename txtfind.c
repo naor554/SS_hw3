@@ -82,9 +82,9 @@ int similiar(char* s, char* t){
 
 int main(){
     
-    char str[WORD]; // buffer for the string to search 
-    char operation[WORD]; // buffer for the operation to do
-    char buffer[LINE]; // buffer for reading a line or a word from the text file
+    char str[WORD] = {0}; // buffer for the string to search 
+    char operation[WORD] = {0}; // buffer for the operation to do
+    char buffer[LINE] = {0}; // buffer for reading a line or a word from the text file
     int chars_recevid;
 
     getword(str);
